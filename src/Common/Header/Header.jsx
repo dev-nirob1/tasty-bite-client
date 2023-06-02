@@ -12,7 +12,7 @@ const Header = () => {
                         </label>
                         <ul className="menu menu-sm dropdown-content mt-2 px-2 py-5 shadow bg-[#333333] rounded w-72">
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/">Blog</Link></li>
+                            <li><Link to="/blog">Blog</Link></li>
                             <li><Link to="/">About</Link></li>
                         </ul>
                     </div>
@@ -21,7 +21,7 @@ const Header = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg">
                         <li className='hover:overline hover:transition-all duration-500 font-semibold'><Link to="/">Home</Link></li>
-                        <li className='hover:overline hover:transition-all duration-500 font-semibold'><Link to="/">Blog</Link></li>
+                        <li className='hover:overline hover:transition-all duration-500 font-semibold'><Link to="/blog">Blog</Link></li>
                         <li className='hover:overline hover:transition-all duration-500 font-semibold'><Link to="/">About</Link></li>
                     </ul>
                 </div>

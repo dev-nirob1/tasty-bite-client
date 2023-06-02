@@ -15,18 +15,20 @@ const Login = () => {
     return (
         <div className='text-center py-10 w-3/4 mx-auto bg-gray-200'>
             <div className='w-3/4 mx-auto'>
-                <h2 className='text-4xl py-8 font-bold'>Welcome to Tasy<span className='text-orange-600'>Bite</span> </h2>
+                <h2 className='text-4xl py-6 font-bold'>Welcome to Tasy<span className='text-orange-600'>Bite</span> </h2>
+
+                <h3 className='text-3xl font-semibold mb-3'>Please login</h3>
                 <div>
 
-                    <div className='flex flex-col w-full max-w-md mx-auto'>
-                        <button className='btn btn-primary w-full hover:btn-outline mb-4'>Continue With Google</button>
+                    <div className='flex flex-col  w-full max-w-md mx-auto'>
+                        <button className='btn btn-primary mx-4 hover:btn-outline mb-4'>Continue With Google</button>
 
-                        <button className='btn btn-outline w-full mb-4'>Continue With Github</button>
+                        <button className='btn btn-outline mx-4 mb-4'>Continue With Github</button>
                     </div>
 
                     <p><small>or</small></p>
 
-                    <form onSubmit={handleLogin} className="flex flex-col px-4 py-8 mx-auto max-w-md">
+                    <form onSubmit={handleLogin} className="flex flex-col px-4 py-6 mx-auto max-w-md">
                         <input
                             type="email"
                             name="email"
@@ -49,9 +51,9 @@ const Login = () => {
                         </div>
 
                         <div className='flex justify-between mt-3'>
-                            <label className="cursor-pointerflex text-left">
+                            <label className="cursor-pointer">
                                 <input type="checkbox" />
-                                <span> <small> <Link to="terms" className='hover:underline text-blue-500 text-xs'>Terms and Conditions</Link> </small> </span>
+                                <span> <small> <Link to="terms" className='hover:underline text-blue-500 text-xs'> Terms and Conditions</Link> </small> </span>
                             </label>
 
                             <span> <small className='hover:bg-blue500 hover:underline text-xs cursor-pointer'>Forget password</small> </span>

@@ -12,6 +12,7 @@ import Home from './Components/Home/Home.jsx';
 import Blog from './Components/Blog/Blog.jsx';
 import Login from './Login/Login/Login.jsx';
 import Register from './Login/Register/Register.jsx';
+import TermsAndConditionsPage from './Common/pages/TermsAndCondition/TermsAndConditionsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register> </Register>
+      },
+      {
+        path: 'terms',
+        element: <TermsAndConditionsPage></TermsAndConditionsPage>
       }
     ]
   },
