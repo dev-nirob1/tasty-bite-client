@@ -26,7 +26,7 @@ const Footer = () => {
       </div>
       <div className="bg-gray-800 py-4 text-center">
         <p className="text-gray-300 text-sm">&copy; {new Date().getFullYear()} Tasty Bite. All rights reserved.</p>
-        <p className="text-gray-300 text-sm">Designed and developed by YourName</p>
+        <p className="text-gray-300 text-sm">Designed and developed by <span className='text-[#FF5733] font-semibold italic' >NIROB</span> </p>
       </div>
     </footer>
         </div>

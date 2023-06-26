@@ -7,38 +7,47 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+
 import MainLayout from './Layout/MainLayout.jsx';
 import Home from './Components/Home/Home.jsx';
 import Blog from './Components/Blog/Blog.jsx';
 import Login from './Login/Login/Login.jsx';
 import Register from './Login/Register/Register.jsx';
-import TermsAndConditionsPage from './Common/pages/TermsAndCondition/TermsAndConditionsPage.jsx';
+import ChefDetails from './Components/ChefSection/ChefDetails.jsx';
+// import TermsAndConditionsPage from './Common/pages/TermsAndCondition/TermsAndConditionsPage.jsx';
+// import LoginLayout from './Layout/LoginLayout.jsx';
 
 const router = createBrowserRouter([
+
+
   {
     path: "/",
     element: <MainLayout></MainLayout>,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home></Home>
       },
       {
-        path: '/blog',
+        path: "/blog",
         element: <Blog></Blog>
       },
       {
-        path: 'login',
+        path: "/chef",
+        element: <ChefDetails></ChefDetails>,        
+      },
+      {
+        path: "/login",
         element: <Login></Login>
       },
       {
-        path: 'register',
-        element: <Register> </Register>
+        path: "/Register",
+        element: <Register></Register>
       },
-      {
-        path: 'terms',
-        element: <TermsAndConditionsPage></TermsAndConditionsPage>
-      }
+      // {
+      //   path: "/terms",
+      //   element: <TermsAndConditionsPage></TermsAndConditionsPage>
+      // }
     ]
   },
 ]);

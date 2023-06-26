@@ -31,32 +31,6 @@ const Register = () => {
                     required
                 />
 
-                <div className="relative w-full max-w-md mb-4">
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        className="input input-bordered w-full"
-                        required
-                    />
-                    <button type="button" className="absolute top-1/2 right-2 transform -translate-y-1/2">
-                        <FaEye />
-                    </button>
-                </div>
-
-                <div className="relative w-full max-w-md mb-4">
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        className="input input-bordered w-full"
-                        required
-                    />
-                    <button type="button" className="absolute top-1/2 right-2 transform -translate-y-1/2">
-                        <FaEye />
-                    </button>
-                </div>
-
                 <input
                     type="text"
                     name="photoUrl"
@@ -65,9 +39,35 @@ const Register = () => {
                     required
                 />
 
+                <div className="relative w-full max-w-md mb-4">
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        className="input input-bordered w-full"
+                        required
+                    />
+                    <button type="button" className="absolute top-1/2 right-2 transform -translate-y-1/2">
+                        <FaEye />
+                    </button>
+                </div>
+
+                <div className="relative w-full max-w-md mb-4">
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        className="input input-bordered w-full"
+                        required
+                    />
+                    <button type="button" className="absolute top-1/2 right-2 transform -translate-y-1/2">
+                        <FaEye />
+                    </button>
+                </div>
+
                 <label className="cursor-pointer flex text-left">
                     <input type="checkbox" />
-                    <span> <small> <Link to="terms" className='hover:underline text-blue-500 text-xs'>Terms and Conditions</Link> </small> </span>
+                    <span> <small> <Link to="/terms" className='hover:underline text-blue-500 text-xs'> Terms and Conditions</Link> </small> </span>
                 </label>
 
                 <button type="submit" className="btn btn-primary mt-4">Register</button>
