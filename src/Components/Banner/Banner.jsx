@@ -11,7 +11,7 @@ const Banner = () => {
                         <h1 className="text-5xl font-bold">Welcome to TastyBite</h1>
                         <p className="py-6 text-lg">Discover a Culinary Journey of Exquisite Flavors and Impeccable Service. Indulge in the Finest Cuisine and Delight Your Taste Buds.
                         </p>
-                        <Link to='/' className=" px-9 font-medium text-lg py-3 rounded-full bg-orange-500 hover:bg-orange-600">Our Chef</Link>
+                        <a href='#chef' className=" px-9 font-medium text-lg py-3 rounded-full bg-orange-500 hover:bg-orange-600">Our Chef</a>
 
                     </div>
                 </div>

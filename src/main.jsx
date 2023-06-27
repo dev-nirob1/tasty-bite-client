@@ -15,6 +15,7 @@ import Login from './Login/Login/Login.jsx';
 import Register from './Login/Register/Register.jsx';
 import ChefDetails from './Components/ChefSection/ChefDetails.jsx';
 import ChefRecipe from './Components/ChefSection/SingleChefDetails/ChefRecipe.jsx';
+import ErrorPage from './Common/ErrorPage/ErrorPage.jsx';
 // import TermsAndConditionsPage from './Common/pages/TermsAndCondition/TermsAndConditionsPage.jsx';
 // import LoginLayout from './Layout/LoginLayout.jsx';
 
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -38,8 +40,9 @@ const router = createBrowserRouter([
         element: <ChefDetails></ChefDetails>,        
       },
       {
-        path: "/chef/:id",
-        element: <ChefRecipe></ChefRecipe>
+        path: "/chefs/:id",
+        element: <ChefRecipe></ChefRecipe>,
+        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
       },
       {
         path: "/login",

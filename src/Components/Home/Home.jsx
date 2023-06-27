@@ -16,7 +16,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
 
-            <div className='container mx-auto py-16'>
+            <div className='container mx-auto py-16' id="chef">
                 <h2 className='text-gray-900 text-center text-4xl font-semibold underline mb-16'>Our Best Chefs</h2>
                 <div className='grid grid-cols-3 gap-8'>
                     {
