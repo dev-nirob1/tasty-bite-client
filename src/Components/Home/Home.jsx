@@ -16,8 +16,8 @@ const Home = () => {
         <div>
             <Banner></Banner>
 
-            <div className='container mx-auto'>
-                <h2 className='text-gray-900 text-center text-4xl font-semibold my-16 underline'>Our Best Chefs</h2>
+            <div className='container mx-auto py-16'>
+                <h2 className='text-gray-900 text-center text-4xl font-semibold underline mb-16'>Our Best Chefs</h2>
                 <div className='grid grid-cols-3 gap-8'>
                     {
                         chefsDetails.map(singleChef => (
