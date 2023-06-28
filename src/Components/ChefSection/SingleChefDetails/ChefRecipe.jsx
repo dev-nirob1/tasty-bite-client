@@ -1,8 +1,10 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Recipes from '../Recipes/Recipes';
 
 const ChefRecipe = () => {
     const chefRecipeDetails = useLoaderData();
+
     const {
         name,
         description,
@@ -12,10 +14,10 @@ const ChefRecipe = () => {
         achievements,
         nationality,
         age,
-        likes
+        likes,
+        recipes
     } = chefRecipeDetails;
 
-    console.log(chefRecipeDetails)
     return (
         <div className='container mx-auto my-10'>
             <div className='flex gap-6 items-center'>
@@ -23,7 +25,7 @@ const ChefRecipe = () => {
                     <img className='w-full h-[450px]' src={banner_picture} alt="chef image" />
                 </div>
                 <div className='w-1/2'>
-                    <h3 className='my-2 text-2xl font-semibold text-gray-600'><span className='underline text-orange-500'>Name :</span> {name}</h3>
+                    <h2 className='my-2 text-2xl font-semibold text-gray-600'><span className='underline text-orange-500'>Name :</span> {name}</h2>
 
                     <div className='flex gap-5'>
                         <p className='my-2 text-lg font-medium text-gray-500'> <span className='underline text-orange-500'>Nationality :</span> {nationality}</p>
@@ -48,6 +50,16 @@ const ChefRecipe = () => {
                             <p className='underline text-orange-500 text-lg font-medium'>Likes</p>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className='my-10'>
+                <h2 className='text-center text-3xl font-semibold underline'>Best Reciepes</h2>
+
+                <div className='mt-10 grid grid-cols-3 gap-5'>
+                    {
+                        recipes.map((recipe, index) => <Recipes recipe={recipe} key={index}></Recipes>)
+                    }
                 </div>
             </div>
 

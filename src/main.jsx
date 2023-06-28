@@ -21,7 +21,6 @@ import ErrorPage from './Common/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
 
-
   {
     path: "/",
     element: <MainLayout></MainLayout>,
@@ -46,18 +45,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
+       
       },
       {
         path: "/Register",
         element: <Register></Register>
       },
+   
       // {
       //   path: "/terms",
       //   element: <TermsAndConditionsPage></TermsAndConditionsPage>
       // }
     ]
   },
+
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
