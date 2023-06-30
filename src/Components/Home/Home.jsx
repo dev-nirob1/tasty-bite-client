@@ -4,13 +4,17 @@ import ChefDetails from '../ChefSection/ChefDetails';
 
 const Home = () => {
     const [chefsDetails, setChefsDetails] = useState([])
+    const [isloading, setLoading] = useState(true)
 
     useEffect(() => {
         fetch("http://localhost:5000/chefs")
             .then((res) => res.json())
             .then((data) => setChefsDetails(data))
+        setLoading(false)
     }, []);
-
+    if (isloading) {
+        return <div className='h-screen w-full flex items-center justify-center'><span className="loading loading-spinner loading-lg"></span></div>
+    }
     return (
 
         <div>

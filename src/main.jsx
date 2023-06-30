@@ -16,6 +16,7 @@ import Register from './Login/Register/Register.jsx';
 import ChefDetails from './Components/ChefSection/ChefDetails.jsx';
 import ChefRecipe from './Components/ChefSection/SingleChefDetails/ChefRecipe.jsx';
 import ErrorPage from './Common/ErrorPage/ErrorPage.jsx';
+import AuthProvider from './Provider/AuthProvider.jsx';
 // import TermsAndConditionsPage from './Common/pages/TermsAndCondition/TermsAndConditionsPage.jsx';
 // import LoginLayout from './Layout/LoginLayout.jsx';
 
@@ -36,23 +37,23 @@ const router = createBrowserRouter([
       },
       {
         path: "/chef",
-        element: <ChefDetails></ChefDetails>,        
+        element: <ChefDetails></ChefDetails>,
       },
       {
         path: "/chefs/:id",
         element: <ChefRecipe></ChefRecipe>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
       },
       {
         path: "/login",
         element: <Login></Login>,
-       
+
       },
       {
         path: "/Register",
         element: <Register></Register>
       },
-   
+
       // {
       //   path: "/terms",
       //   element: <TermsAndConditionsPage></TermsAndConditionsPage>
@@ -64,6 +65,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider><RouterProvider router={router} /></AuthProvider>
   </React.StrictMode>,
 )

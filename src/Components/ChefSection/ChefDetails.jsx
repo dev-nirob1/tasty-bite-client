@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const ChefDetails = ({ singleChef }) => {
     const { name, picture, bio, numberOfRecipes, likes, id } = singleChef;
-
+   
     return (
         <div>
             <div className='rounded-xl border p-3 bg-gray-50'>

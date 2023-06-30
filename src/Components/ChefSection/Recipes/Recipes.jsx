@@ -11,7 +11,7 @@ const Recipes = ({ recipe }) => {
                 <h3 className='my-2 text-2xl font-semibold text-gray-600'><span className='underline text-orange-500'>Recipe :</span> {name}</h3>
                 <p className='underline text-orange-500'>Ingredients :</p>
                 {
-                    ingredients.map(ingredient => <Ingredients ingredient={ingredient}></Ingredients>)
+                    ingredients.map((ingredient, index) => <Ingredients ingredient={ingredient} key={index}></Ingredients>)
                 }
                 <p><span className='underline text-orange-500'>Cooking Method :</span> {cookingMethod}</p>
                 <div className='flex justify-between mt-5'>

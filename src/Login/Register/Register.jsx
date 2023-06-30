@@ -1,11 +1,45 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
+
+    const [error, setError] = useState('')
+    const {createUser} = useContext(AuthContext)
+
+
+
     const handleRegister = event => {
         event.preventDefault()
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photoUrl = form.photoUrl.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+        form.reset('')
+        setError('')
 
+        if(password !== confirmPassword){
+            setError('Password did not matched')
+            return
+        }
+        if (password.length < 6) {
+            setError(`Your password must be 6 digits or more`)
+            return
+        }
+
+        createUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+          })
+          .then(error =>{
+            console.log(error.message)
+            setError(error)
+            
+          })
     }
     return (
 
@@ -55,7 +89,7 @@ const Register = () => {
                 <div className="relative w-full max-w-md mb-4">
                     <input
                         type="password"
-                        name="password"
+                        name="confirmPassword"
                         placeholder="Password"
                         className="input input-bordered w-full"
                         required
@@ -69,7 +103,7 @@ const Register = () => {
                     <input type="checkbox" />
                     <span> <small> <Link to="/terms" className='hover:underline text-blue-500 text-xs'> Terms and Conditions</Link> </small> </span>
                 </label>
-
+                    <p>{error}</p>
                 <button type="submit" className="btn btn-primary mt-4">Register</button>
 
             </form>

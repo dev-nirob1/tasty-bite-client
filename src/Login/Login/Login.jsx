@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye, } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
+        const [error, setError] = useState('')
+        const [success, setSuccess] = useState('')
+
+        const {login} = useContext(AuthContext)
 
     const handleLogin = event =>{
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+
+        login(email, password)
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser)
+            setSuccess('welcome')
+        })
+        .then(error =>{
+            console.log(error)
+            setError(error.message)
+        })
+
     }
 
     return (
@@ -49,6 +65,8 @@ const Login = () => {
                                 <FaEye />
                             </button>
                         </div>
+                        <p>{success}</p>
+                        <p>{error}</p>
 
                         <div className='flex justify-between mt-3'>
                             <label className="cursor-pointer">
