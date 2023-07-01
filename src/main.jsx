@@ -19,6 +19,7 @@ import ErrorPage from './Common/ErrorPage/ErrorPage.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoutes from './Routes/PrivateRoutes.jsx';
 import Love from './Components/LoveSection/Love.jsx';
+import About from './Components/About/About.jsx';
 // import TermsAndConditionsPage from './Common/pages/TermsAndCondition/TermsAndConditionsPage.jsx';
 // import LoginLayout from './Layout/LoginLayout.jsx';
 
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+        loader: () => fetch('http://localhost:5000/about')
       },
       {
         path: "/chef",

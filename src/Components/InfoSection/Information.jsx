@@ -5,7 +5,7 @@ const Information = () => {
     return (
         <div className='container mx-auto my-10 flex items-center gap-8 bg-gray-50 rounded-md'>
             <div className='w-1/2'>
-                <img className='rounded-s' src="/public/resturant.jpeg" alt="resturant image" />
+                <img className='rounded-s' src="/resturant.jpeg" alt="resturant image" />
             </div>
             <div className='w-1/2 p-5'>
                 <h2 className='text-4xl font-semibold text-gray-900'>Order Now Your Food and <br /> we'll deliver it fast</h2>
