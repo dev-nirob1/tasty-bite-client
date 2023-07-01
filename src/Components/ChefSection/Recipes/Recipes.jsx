@@ -1,5 +1,6 @@
 import React from 'react';
 import Ingredients from './Ingredients';
+import { FaHeart } from "react-icons/fa6";
 
 const Recipes = ({ recipe }) => {
     const { name, recipe_picture, ingredients, cookingMethod, rating } = recipe;
@@ -16,7 +17,7 @@ const Recipes = ({ recipe }) => {
                 <p><span className='underline text-orange-500'>Cooking Method :</span> {cookingMethod}</p>
                 <div className='flex justify-between mt-5'>
                     <p>{rating}</p>
-                    <button className="text-white block w-fit px-9 font-medium text-lg py-3 rounded-lg bg-orange-500 hover:bg-orange-600">Add To Favorite</button>
+                    <button title='Add to favorite' className='text-2xl text-red-500'><FaHeart></FaHeart></button>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import ChefDetails from '../ChefSection/ChefDetails';
 import Love from '../LoveSection/Love';
+import Information from '../InfoSection/Information';
 
 const Home = () => {
     const [chefsDetails, setChefsDetails] = useState([])
@@ -33,6 +34,8 @@ const Home = () => {
                     }
                 </div>
             </div>
+
+            <Information></Information>
 
         </div>
     );
