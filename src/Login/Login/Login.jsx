@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaEye, } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
@@ -9,20 +9,28 @@ const Login = () => {
 
         const {login} = useContext(AuthContext)
 
+        const navigate = useNavigate();
+        const location = useNavigate();
+        const from = location.state?.from?.pathname || '/';
+
     const handleLogin = event =>{
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        form.reset('')
 
         login(email, password)
         .then(result =>{
             const loggedUser = result.user;
             console.log(loggedUser)
+            navigate(from, {replace: true}) 
             setSuccess('welcome')
+            form.reset('')
         })
-        .then(error =>{
-            console.log(error)
+        .catch(error =>{
+            const errorMessage = error.message
+            console.error(errorMessage)
             setError(error.message)
         })
 

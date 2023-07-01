@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaEye } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Register = () => {
@@ -8,7 +8,7 @@ const Register = () => {
     const [error, setError] = useState('')
     const {createUser} = useContext(AuthContext)
 
-
+    const navigate = useNavigate()
 
     const handleRegister = event => {
         event.preventDefault()
@@ -18,6 +18,7 @@ const Register = () => {
         const photoUrl = form.photoUrl.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
+        navigate ('/')
         form.reset('')
         setError('')
 
@@ -35,9 +36,9 @@ const Register = () => {
             const loggedUser = result.user;
             console.log(loggedUser)
           })
-          .then(error =>{
+          .catch(error =>{
             console.log(error.message)
-            setError(error)
+            setError(error.message)
             
           })
     }

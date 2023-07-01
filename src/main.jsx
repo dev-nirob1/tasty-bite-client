@@ -17,6 +17,8 @@ import ChefDetails from './Components/ChefSection/ChefDetails.jsx';
 import ChefRecipe from './Components/ChefSection/SingleChefDetails/ChefRecipe.jsx';
 import ErrorPage from './Common/ErrorPage/ErrorPage.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
+import PrivateRoutes from './Routes/PrivateRoutes.jsx';
+import Love from './Components/LoveSection/Love.jsx';
 // import TermsAndConditionsPage from './Common/pages/TermsAndCondition/TermsAndConditionsPage.jsx';
 // import LoginLayout from './Layout/LoginLayout.jsx';
 
@@ -40,8 +42,12 @@ const router = createBrowserRouter([
         element: <ChefDetails></ChefDetails>,
       },
       {
+        path: "/love",
+        element: <Love></Love>
+      },
+      {
         path: "/chefs/:id",
-        element: <ChefRecipe></ChefRecipe>,
+        element: <PrivateRoutes><ChefRecipe></ChefRecipe></PrivateRoutes>,
         loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
       },
       {

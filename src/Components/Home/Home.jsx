@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
 import ChefDetails from '../ChefSection/ChefDetails';
+import Love from '../LoveSection/Love';
 
 const Home = () => {
     const [chefsDetails, setChefsDetails] = useState([])
@@ -19,6 +20,8 @@ const Home = () => {
 
         <div>
             <Banner></Banner>
+
+            <Love></Love>
 
             <div className='container mx-auto py-16' id="chef">
                 <h2 className='text-gray-900 text-center text-4xl font-semibold underline mb-16'>Our Best Chefs</h2>

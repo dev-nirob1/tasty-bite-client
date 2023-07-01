@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
+    const { user, logout } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logout()
+            .then(result =>{})
+            .catch(() => {
+                console.log('something went wrong')
+            })
+    }
+
     return (
         <div>
             <div className="navbar bg-gray-900 text-[#FF5733] ">
@@ -26,7 +37,11 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login" className="px-8 py-3 font-semibold text-lg rounded-full text-white bg-orange-500 hover:bg-white hover:text-orange-500">Login</Link>
+                    {
+                        user ? <Link to="/login" onClick={handleLogout} className="px-8 py-3 font-semibold text-lg rounded-full text-white bg-orange-500 hover:bg-white hover:text-orange-500">Logout</Link>
+                            :
+                            <Link to="/login" className="px-8 py-3 font-semibold text-lg rounded-full text-white bg-orange-500 hover:bg-white hover:text-orange-500">Login</Link>
+                    }
                 </div>
             </div>
         </div >
