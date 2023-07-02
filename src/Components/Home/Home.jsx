@@ -15,7 +15,7 @@ const Home = () => {
         setLoading(false)
     }, []);
     if (isloading) {
-        return <div className='h-screen w-full flex items-center justify-center'><span className="loading loading-spinner loading-lg"></span></div>
+        return <div className='h-screen w-full flex items-center justify-center'><span className="loading loading-spinner text-warning loading-lg"></span></div>
     }
     return (
 

@@ -1,9 +1,7 @@
 import React from 'react';
 import Ingredients from './Ingredients';
 import { FaHeart } from "react-icons/fa6";
-import { Rating } from '@smastrom/react-rating'
 
-import '@smastrom/react-rating/style.css'
 
 const Recipes = ({ recipe }) => {
     const { name, recipe_picture, ingredients, cookingMethod, rating } = recipe;
@@ -19,8 +17,9 @@ const Recipes = ({ recipe }) => {
                 }
                 <p><span className='underline text-orange-500'>Cooking Method :</span> {cookingMethod}</p>
                 <div className='flex justify-between mt-5'>
-                    
-                    <p><Rating className='text-2xl' readOnly value={rating} /> {rating}</p>
+                    <p className="flex items-center">
+                        <span className="text-2xl ml-2">{rating}</span>
+                    </p>
                     <button title='Add to favorite' className='text-2xl text-red-500'><FaHeart></FaHeart></button>
                 </div>
             </div>

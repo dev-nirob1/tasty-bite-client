@@ -1,19 +1,21 @@
 import React, { useContext, useState } from 'react';
 import { FaEye, } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
-        const [error, setError] = useState('')
-        const [success, setSuccess] = useState('')
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
 
-        const {login} = useContext(AuthContext)
+    const { login } = useContext(AuthContext)
 
-        const navigate = useNavigate();
-        const location = useNavigate();
-        const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location)
 
-    const handleLogin = event =>{
+    const from = location.state?.from?.pathname || '/';
+
+    const handleLogin = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
@@ -21,18 +23,18 @@ const Login = () => {
         form.reset('')
 
         login(email, password)
-        .then(result =>{
-            const loggedUser = result.user;
-            console.log(loggedUser)
-            navigate(from, {replace: true}) 
-            setSuccess('welcome')
-            form.reset('')
-        })
-        .catch(error =>{
-            const errorMessage = error.message
-            console.error(errorMessage)
-            setError(error.message)
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                setSuccess('welcome')
+                form.reset('')
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                const errorMessage = error.message
+                console.error(errorMessage)
+                setError(error.message)
+            })
 
     }
 

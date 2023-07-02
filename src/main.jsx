@@ -17,9 +17,9 @@ import ChefDetails from './Components/ChefSection/ChefDetails.jsx';
 import ChefRecipe from './Components/ChefSection/SingleChefDetails/ChefRecipe.jsx';
 import ErrorPage from './Common/ErrorPage/ErrorPage.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
-import PrivateRoutes from './Routes/PrivateRoutes.jsx';
 import Love from './Components/LoveSection/Love.jsx';
 import About from './Components/About/About.jsx';
+import PrivateRoutes from './Routes/PrivateRoutes.jsx';
 // import TermsAndConditionsPage from './Common/pages/TermsAndCondition/TermsAndConditionsPage.jsx';
 // import LoginLayout from './Layout/LoginLayout.jsx';
 

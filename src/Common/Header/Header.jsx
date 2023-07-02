@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { FaCircleUser } from "react-icons/fa6";
 
 const Header = () => {
-    const { user, logout } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user)
 
     const handleLogout = () => {
-        logout()
-            .then(result =>{})
+        logOut()
+            .then(result => { })
             .catch(() => {
                 console.log('something went wrong')
             })
@@ -37,8 +39,9 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                   
                     {
-                        user ? <Link to="/login" onClick={handleLogout} className="px-8 py-3 font-semibold text-lg rounded-full text-white bg-orange-500 hover:bg-white hover:text-orange-500">Logout</Link>
+                        user ? <><button onClick={handleLogout} className="px-8 py-3 font-semibold text-lg rounded-full text-white bg-orange-500 hover:bg-white hover:text-orange-500">Logout</button></>
                             :
                             <Link to="/login" className="px-8 py-3 font-semibold text-lg rounded-full text-white bg-orange-500 hover:bg-white hover:text-orange-500">Login</Link>
                     }
