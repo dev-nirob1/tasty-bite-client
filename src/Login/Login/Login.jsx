@@ -7,7 +7,7 @@ const Login = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
-    const { login, googleLogin } = useContext(AuthContext)
+    const { login, googleLogin, githubLogin } = useContext(AuthContext)
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -30,6 +30,22 @@ const Login = () => {
             setError(errorMessage);
           });
       };
+
+    //   github 
+
+    const handleGithubLogin = () =>{
+        githubLogin()
+        .then(result =>{
+            const githubUser = result.user;
+            console.log(githubUser)
+            navigate(from, {replace: true});
+            setError("")
+        })
+        .catch(error =>{
+            const errorMessage = error.message;
+            setError(errorMessage)
+        })
+    }
 
     //   password login 
 
@@ -67,7 +83,7 @@ const Login = () => {
                     <div onClick={handleGoogleLogin} className='flex flex-col  w-full max-w-md mx-auto'>
                         <button className='btn btn-primary mx-4 hover:btn-outline mb-4'>Continue With Google</button>
 
-                        <button className='btn btn-outline mx-4 mb-4'>Continue With Github</button>
+                        <button onClick={handleGithubLogin} className='btn btn-outline mx-4 mb-4'>Continue With Github</button>
                     </div>
 
                     <p><small>or</small></p>
