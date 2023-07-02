@@ -7,13 +7,31 @@ const Login = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
 
-    const { login } = useContext(AuthContext)
+    const { login, googleLogin } = useContext(AuthContext)
 
     const navigate = useNavigate();
     const location = useLocation();
     console.log(location)
 
     const from = location.state?.from?.pathname || '/';
+
+    // google
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+          .then((result) => {
+            const googleUser = result.user;
+            console.log(googleUser)
+            navigate(from, { replace: true });
+            setError("");
+          })
+          .catch((error) => {
+            const errorMessage = error.message;
+            setError(errorMessage);
+          });
+      };
+
+    //   password login 
 
     const handleLogin = event => {
         event.preventDefault()
@@ -46,7 +64,7 @@ const Login = () => {
                 <h3 className='text-3xl font-semibold mb-3'>Please login</h3>
                 <div>
 
-                    <div className='flex flex-col  w-full max-w-md mx-auto'>
+                    <div onClick={handleGoogleLogin} className='flex flex-col  w-full max-w-md mx-auto'>
                         <button className='btn btn-primary mx-4 hover:btn-outline mb-4'>Continue With Google</button>
 
                         <button className='btn btn-outline mx-4 mb-4'>Continue With Github</button>
