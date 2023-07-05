@@ -20,8 +20,7 @@ import AuthProvider from './Provider/AuthProvider.jsx';
 import Love from './Components/LoveSection/Love.jsx';
 import About from './Components/About/About.jsx';
 import PrivateRoutes from './Routes/PrivateRoutes.jsx';
-// import TermsAndConditionsPage from './Common/pages/TermsAndCondition/TermsAndConditionsPage.jsx';
-// import LoginLayout from './Layout/LoginLayout.jsx';
+
 
 const router = createBrowserRouter([
 
@@ -67,10 +66,6 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
 
-      // {
-      //   path: "/terms",
-      //   element: <TermsAndConditionsPage></TermsAndConditionsPage>
-      // }
     ]
   },
 

@@ -7,8 +7,11 @@ const Register = () => {
 
     const [error, setError] = useState('')
     const {createUser} = useContext(AuthContext)
+    const from = location.state?.from?.pathname || '/';
 
     const navigate = useNavigate()
+    const passwordRegex = /^(?=.*[!@#$%^&*])(?=.*\d)(?=.*[A-Z]).{6,}$/;
+
 
     const handleRegister = event => {
         event.preventDefault()
@@ -18,9 +21,9 @@ const Register = () => {
         const photoUrl = form.photoUrl.value;
         const password = form.password.value;
         const confirmPassword = form.confirmPassword.value;
-        navigate ('/')
-        form.reset('')
+        // form.reset('')
         setError('')
+        navigate(from, { replace: true })
 
         if(password !== confirmPassword){
             setError('Password did not matched')
@@ -30,7 +33,6 @@ const Register = () => {
             setError(`Your password must be 6 digits or more`)
             return
         }
-        const passwordRegex = /^(?=.*[!@#$%^&*])(?=.*\d)(?=.*[A-Z]).{6,}$/;
         if (!passwordRegex.test(password)) {
           setError(
             'Password must contain at least one special character, one number, and one capital letter'
@@ -51,10 +53,10 @@ const Register = () => {
     }
     return (
 
-        <div className='py-6 text-center w-3/4 mx-auto bg-gray-200'>
-            <h2 className='text-4xl py-8 font-bold'>Welcome to Tasy<span className='text-orange-600'>Bite</span> </h2>
+        <div className='py-6 text-center md:w-3/4 mx-auto bg-gray-200'>
+            <h2 className='text-3xl md:text-4xl md:py-8 font-bold'>Welcome to Tasty<span className='text-orange-600'>Bite</span> </h2>
 
-            <h3>Please Register</h3>
+            {/* <h3>Please Register</h3> */}
 
             <form onSubmit={handleRegister} className="flex flex-col justify-center px-4 py-8 mx-auto max-w-md">
                 <input
@@ -109,7 +111,7 @@ const Register = () => {
 
                 <label className="cursor-pointer flex text-left">
                     <input type="checkbox" />
-                    <span> <small> <Link to="/terms" className='hover:underline text-blue-500 text-xs'> Terms and Conditions</Link> </small> </span>
+                    <span> <small>  Terms and Conditions</small> </span>
                 </label>
                     <p>{error}</p>
                 <button type="submit" className="btn btn-primary mt-4">Register</button>

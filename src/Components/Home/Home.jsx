@@ -24,9 +24,9 @@ const Home = () => {
 
             <Love></Love>
 
-            <div className='container mx-auto py-16' id="chef">
+            <div className='container mx-auto py-8 md:py-16' id="chef">
                 <h2 className='text-gray-900 text-center text-4xl font-semibold underline mb-16'>Our Best Chefs</h2>
-                <div className='grid grid-cols-3 gap-8'>
+                <div className='grid grid-cols-1 mx-3 md:mx-0 md:grid-cols-3 gap-5 md:gap-8'>
                     {
                         chefsDetails.map(singleChef => (
                             <ChefDetails key={singleChef.id} singleChef={singleChef}></ChefDetails>

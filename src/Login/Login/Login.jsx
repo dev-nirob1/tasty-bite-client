@@ -73,11 +73,11 @@ const Login = () => {
     }
 
     return (
-        <div className='text-center py-10 w-3/4 mx-auto bg-gray-200'>
-            <div className='w-3/4 mx-auto'>
-                <h2 className='text-4xl py-6 font-bold'>Welcome to Tasy<span className='text-orange-600'>Bite</span> </h2>
+        <div className='text-center px-4 py-6 md:py-10 md:w-3/4 mx-auto bg-gray-200'>
+            <div className='md:w-3/4 mx-auto'>
+                {/* <h2 className='text-4xl py-6 font-bold'>Welcome to Tasy<span className='text-orange-600'>Bite</span> </h2> */}
 
-                <h3 className='text-3xl font-semibold mb-3'>Please login</h3>
+                <h3 className='text-2xl md:text-3xl font-semibold mb-3'>Login</h3>
                 <div>
 
                     <div onClick={handleGoogleLogin} className='flex flex-col  w-full max-w-md mx-auto'>
@@ -115,7 +115,7 @@ const Login = () => {
                         <div className='flex justify-between mt-3'>
                             <label className="cursor-pointer">
                                 <input type="checkbox" />
-                                <span> <small> <Link to="terms" className='hover:underline text-blue-500 text-xs'> Terms and Conditions</Link> </small> </span>
+                                <span> <small> Remember me</small> </span>
                             </label>
 
                             <span> <small className='hover:bg-blue500 hover:underline text-xs cursor-pointer'>Forget password</small> </span>

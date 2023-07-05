@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ChefDetails = ({ singleChef }) => {
@@ -15,7 +15,7 @@ const ChefDetails = ({ singleChef }) => {
                         <p className='text-lg text-gray-800'>Number Of Recipe: {numberOfRecipes}</p>
                         <p className='text-lg text-gray-800'>Likes : {likes}</p>
                     </div>
-                    <Link to={`/chefs/${id}`} className="text-white block w-fit px-9 font-medium text-lg py-3 rounded-lg bg-orange-500 hover:bg-orange-600">View Recipe</Link>
+                    <Link to={`/chefs/${id}`} className="text-white block w-fit px-7 md:px-9 font-medium text-lg py-3 rounded-lg bg-orange-500 hover:bg-orange-600">View Recipe</Link>
                 </div>
             </div>
 

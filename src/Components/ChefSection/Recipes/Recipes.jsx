@@ -21,7 +21,7 @@ const Recipes = ({ recipe }) => {
         <div className='border rounded-xl p-3 bg-gray-50'>
             <img className='h-96 w-full rounded-t-xl' src={recipe_picture} alt="food picture" />
             <div className='py-3'>
-                <h3 className='my-2 text-2xl font-semibold text-gray-600'><span className='underline text-orange-500'>Recipe :</span> {name}</h3>
+                <h3 className='my-2 text-xl md:text-2xl font-semibold text-gray-600'><span className='underline text-orange-500'>Recipe :</span> {name}</h3>
                 <p className='underline text-orange-500'>Ingredients :</p>
                 {
                     ingredients.map((ingredient, index) => <Ingredients ingredient={ingredient} key={index}></Ingredients>)
