@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Ingredients from './Ingredients';
-import { FaHeart } from "react-icons/fa6";
+import { FaHeart } from "react-icons/fa";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Recipes = ({ recipe }) => {
     const { name, recipe_picture, ingredients, cookingMethod, rating } = recipe;
+    console.log(recipe)
+    const [disable, setDisable] = useState(false)
+    const handleToast = () => {
+        if (!disable) {
+            toast.success('Recipe added successfully');
+            setDisable(true);
+        }
+    };
+
     // console.log(recipe)
     return (
         <div className='border rounded-xl p-3 bg-gray-50'>
@@ -20,8 +31,14 @@ const Recipes = ({ recipe }) => {
                     <p className="flex items-center">
                         <span className="text-2xl ml-2">{rating}</span>
                     </p>
-                    <button title='Add to favorite' className='text-2xl text-red-500'><FaHeart></FaHeart></button>
+                   <button onClick={handleToast} title='Add to favorite' className={`cursor-pointer text-xl ${disable ? "text-gray-500" : "text-red-500"
+                        }`}  disabled={disable}> <FaHeart></FaHeart></button>
+
                 </div>
+
+            </div>
+            <div>
+                <ToastContainer/>
             </div>
         </div>
     );

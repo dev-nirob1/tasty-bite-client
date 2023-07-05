@@ -30,6 +30,13 @@ const Register = () => {
             setError(`Your password must be 6 digits or more`)
             return
         }
+        const passwordRegex = /^(?=.*[!@#$%^&*])(?=.*\d)(?=.*[A-Z]).{6,}$/;
+        if (!passwordRegex.test(password)) {
+          setError(
+            'Password must contain at least one special character, one number, and one capital letter'
+          );
+          return;
+        }
 
         createUser(email, password)
         .then(result => {
