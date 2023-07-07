@@ -23,7 +23,7 @@ const Login = () => {
         googleLogin()
             .then((result) => {
                 const googleUser = result.user;
-                console.log(googleUser)
+                // console.log(googleUser)
                 navigate(from, { replace: true });
                 setError("");
             })
@@ -39,7 +39,7 @@ const Login = () => {
         githubLogin()
             .then(result => {
                 const githubUser = result.user;
-                console.log(githubUser)
+                // console.log(githubUser)
                 navigate(from, { replace: true });
                 setError("")
             })
@@ -62,14 +62,14 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
+                // console.log(loggedUser)
                 setSuccess('Welcome to TastyBite')
                 form.reset('')
                 navigate(from, { replace: true })
             })
             .catch(error => {
                 const errorMessage = error.message
-                console.error(errorMessage)
+                // console.error(errorMessage)
                 setError(error.message)
             })
     }
@@ -83,9 +83,9 @@ const Login = () => {
     return (
         <div className='text-center px-4 py-6 md:py-10 md:w-3/4 mx-auto bg-gray-200'>
             <div className='md:w-3/4 mx-auto'>
-                {/* <h2 className='text-4xl py-6 font-bold'>Welcome to Tasy<span className='text-orange-600'>Bite</span> </h2> */}
+                <h2 className='text-4xl py-6 font-bold'>Welcome to Tasy<span className='text-orange-600'>Bite</span> </h2>
 
-                <h3 className='text-2xl md:text-3xl font-semibold mb-3'>Login</h3>
+                {/* <h3 className='text-2xl md:text-3xl font-semibold mb-3'>Login</h3> */}
                 <div>
 
                     <div onClick={handleGoogleLogin} className='flex flex-col  w-full max-w-md mx-auto'>
@@ -130,13 +130,14 @@ const Login = () => {
                             </label>
 
                             <span> <small className='hover:bg-blue500 hover:underline text-xs cursor-pointer'>Forget password</small> </span>
-
                         </div>
 
                         <button type="submit" disabled={!isChecked} className="btn btn-primary mt-4">Login</button>
                     </form>
 
-                    <p><small>Not a member? <Link to="/register" className='hover:underline text-blue-500 text-xs'>Register</Link> </small></p>
+                    <p><small>Not a member?
+                        <Link to="/register" className='hover:underline text-blue-500 text-xs'>Register</Link>
+                    </small></p>
 
                 </div>
             </div>

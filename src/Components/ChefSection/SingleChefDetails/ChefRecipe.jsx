@@ -60,9 +60,7 @@ const ChefRecipe = () => {
                     {
                         recipes.map((recipe) => <Recipes recipe={recipe} key={recipe.id}></Recipes>)
                     }
-                    {/* {
-                                    recipes.map((recipe, index) => console.log(index))
-                                } */}
+
                 </div>
             </div>
 

@@ -3,21 +3,19 @@ import Ingredients from './Ingredients';
 import { FaHeart } from "react-icons/fa";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const Recipes = ({ recipe }) => {
     const { name, recipe_picture, ingredients, cookingMethod, rating } = recipe;
-    console.log(recipe)
     const [disable, setDisable] = useState(false)
+
     const handleToast = () => {
         if (!disable) {
             toast.success('Recipe added successfully');
             setDisable(true);
         }
     };
-
     // console.log(recipe)
     return (
         <div className='border rounded-xl p-3 bg-gray-50'>
@@ -28,22 +26,23 @@ const Recipes = ({ recipe }) => {
                 {
                     ingredients.map((ingredient, index) => <Ingredients ingredient={ingredient} key={index}></Ingredients>)
                 }
-                <p><span className='underline text-orange-500'>Cooking Method :</span> {cookingMethod}</p>
+                <p>
+                    <span className='underline text-orange-500'>Cooking Method :</span> {cookingMethod}
+                    </p>
                 <div className='flex justify-between mt-5'>
-                    <p className="flex items-center">
+                    <div className="flex items-center">
                         <Rating
                             style={{ maxWidth: 150 }}
                             value={Math.round(rating || 0)} readOnly />
-                        <span className='ms-2 text-xl'> {rating}</span>
-                    </p>
+                        <span className='ml-2 text-xl'> {rating}</span>
+                    </div>
                     <button onClick={handleToast} title='Add to favorite' className={`cursor-pointer text-xl ${disable ? "text-gray-500" : "text-red-500"
-                        }`} disabled={disable}> <FaHeart></FaHeart></button>
-
+                        }`} disabled={disable}> <FaHeart></FaHeart>
+                    </button>
                 </div>
-
             </div>
             <div>
-                <ToastContainer />
+                <Toaster />
             </div>
         </div>
     );
