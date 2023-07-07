@@ -1,17 +1,19 @@
 import React, { useContext, useState } from 'react';
-import { FaEye, } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
+    const [showPassword, setShowPassword] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
 
     const { login, googleLogin, githubLogin } = useContext(AuthContext)
 
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location)
+    // console.log(location)
 
     const from = location.state?.from?.pathname || '/';
 
@@ -19,32 +21,32 @@ const Login = () => {
 
     const handleGoogleLogin = () => {
         googleLogin()
-          .then((result) => {
-            const googleUser = result.user;
-            console.log(googleUser)
-            navigate(from, { replace: true });
-            setError("");
-          })
-          .catch((error) => {
-            const errorMessage = error.message;
-            setError(errorMessage);
-          });
-      };
+            .then((result) => {
+                const googleUser = result.user;
+                console.log(googleUser)
+                navigate(from, { replace: true });
+                setError("");
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage);
+            });
+    };
 
     //   github 
 
-    const handleGithubLogin = () =>{
+    const handleGithubLogin = () => {
         githubLogin()
-        .then(result =>{
-            const githubUser = result.user;
-            console.log(githubUser)
-            navigate(from, {replace: true});
-            setError("")
-        })
-        .catch(error =>{
-            const errorMessage = error.message;
-            setError(errorMessage)
-        })
+            .then(result => {
+                const githubUser = result.user;
+                console.log(githubUser)
+                navigate(from, { replace: true });
+                setError("")
+            })
+            .catch(error => {
+                const errorMessage = error.message;
+                setError(errorMessage)
+            })
     }
 
     //   password login 
@@ -54,13 +56,14 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        form.reset('')
 
+        setError('')
+        setSuccess('')
         login(email, password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
-                setSuccess('welcome')
+                setSuccess('Welcome to TastyBite')
                 form.reset('')
                 navigate(from, { replace: true })
             })
@@ -69,7 +72,12 @@ const Login = () => {
                 console.error(errorMessage)
                 setError(error.message)
             })
-
+    }
+    const handlePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+    const handleCheckboxChange = (event) => {
+        setIsChecked(event.target.checked);
     }
 
     return (
@@ -99,30 +107,33 @@ const Login = () => {
 
                         <div className="relative w-full max-w-md">
                             <input
-                                type="password"
+                                type={showPassword ? 'text' : 'password'}
                                 name="password"
                                 placeholder="Password"
                                 className="input input-bordered w-full"
                                 required
                             />
-                            <button type="button" className="absolute top-1/2 right-2 transform -translate-y-1/2">
-                                <FaEye />
+                            <button type="button" onClick={handlePasswordVisibility} className="absolute top-1/2 right-2 transform -translate-y-1/2">
+                                {!showPassword ? <FaEye /> : <FaEyeSlash />}
                             </button>
                         </div>
-                        <p>{success}</p>
-                        <p>{error}</p>
+                        <p className='text-green-500'>{success}</p>
+                        <p className='text-red-600'>{error}</p>
 
                         <div className='flex justify-between mt-3'>
-                            <label className="cursor-pointer">
-                                <input type="checkbox" />
-                                <span> <small> Remember me</small> </span>
+                            <label className="cursor-pointer flex items-center">
+                                <input type="checkbox"
+                                    name="checkbox"
+                                    checked={isChecked}
+                                    onChange={handleCheckboxChange} />
+                                <span className='ms-1'> <small> Accept terms and conditions</small> </span>
                             </label>
 
                             <span> <small className='hover:bg-blue500 hover:underline text-xs cursor-pointer'>Forget password</small> </span>
 
                         </div>
 
-                        <button type="submit" className="btn btn-primary mt-4">Login</button>
+                        <button type="submit" disabled={!isChecked} className="btn btn-primary mt-4">Login</button>
                     </form>
 
                     <p><small>Not a member? <Link to="/register" className='hover:underline text-blue-500 text-xs'>Register</Link> </small></p>

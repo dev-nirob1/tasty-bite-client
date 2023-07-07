@@ -9,7 +9,7 @@ const Home = () => {
     const [isloading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("http://localhost:5000/chefs")
+        fetch("https://tasty-bite-server-ten.vercel.app/chefs")
             .then((res) => res.json())
             .then((data) => setChefsDetails(data))
         setLoading(false)

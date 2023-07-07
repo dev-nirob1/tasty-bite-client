@@ -1,5 +1,7 @@
 import React from 'react';
 import { useRouteError } from 'react-router-dom';
+import { FaRegFrownOpen } from "react-icons/fa";
+
 
 const ErrorPage = () => {
     const { error } = useRouteError();
@@ -10,8 +12,8 @@ const ErrorPage = () => {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-
-            <h1 className="text-4xl font-bold text-gray-800 mb-2">Oops!</h1>
+            <h1 className='text-orange-500 text-7xl mb-5'><FaRegFrownOpen /></h1>
+            <h2 className="text-4xl font-bold text-gray-800 mb-2">Oops!</h2>
             <p className="text-lg text-gray-600 mb-4">
                 {error ? error.message : 'Something went wrong.'}
             </p>

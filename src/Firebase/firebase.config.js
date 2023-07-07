@@ -1,16 +1,15 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+import { initializeApp } from "firebase/app";
+
+//Firebase configuration
+console.log(import.meta.env.VITE_APIKEY)
 const firebaseConfig = {
-  apiKey: "AIzaSyBA-dGeMPTLtcygTgkd_ziBVGvUaN_5h5k",
-  authDomain: "tasty-bite-auth.firebaseapp.com",
-  projectId: "tasty-bite-auth",
-  storageBucket: "tasty-bite-auth.appspot.com",
-  messagingSenderId: "137067082742",
-  appId: "1:137067082742:web:dc5bf57b5bb985a47acdd7"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

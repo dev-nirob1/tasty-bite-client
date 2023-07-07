@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Ingredients from './Ingredients';
 import { FaHeart } from "react-icons/fa";
+import { Rating } from '@smastrom/react-rating'
+import '@smastrom/react-rating/style.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -29,16 +31,19 @@ const Recipes = ({ recipe }) => {
                 <p><span className='underline text-orange-500'>Cooking Method :</span> {cookingMethod}</p>
                 <div className='flex justify-between mt-5'>
                     <p className="flex items-center">
-                        <span className="text-2xl ml-2">{rating}</span>
+                        <Rating
+                            style={{ maxWidth: 150 }}
+                            value={Math.round(rating || 0)} readOnly />
+                        <span className='ms-2 text-xl'> {rating}</span>
                     </p>
-                   <button onClick={handleToast} title='Add to favorite' className={`cursor-pointer text-xl ${disable ? "text-gray-500" : "text-red-500"
-                        }`}  disabled={disable}> <FaHeart></FaHeart></button>
+                    <button onClick={handleToast} title='Add to favorite' className={`cursor-pointer text-xl ${disable ? "text-gray-500" : "text-red-500"
+                        }`} disabled={disable}> <FaHeart></FaHeart></button>
 
                 </div>
 
             </div>
             <div>
-                <ToastContainer/>
+                <ToastContainer />
             </div>
         </div>
     );

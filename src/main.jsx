@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 
 import {
@@ -36,12 +35,12 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog></Blog>,
-        loader: () => fetch('http://localhost:5000/blog')
+        loader: () => fetch('https://tasty-bite-server-ten.vercel.app/blog')
       },
       {
         path: "/about",
         element: <About></About>,
-        loader: () => fetch('http://localhost:5000/about')
+        loader: () => fetch('https://tasty-bite-server-ten.vercel.app/about')
       },
       {
         path: "/chef",
@@ -54,7 +53,7 @@ const router = createBrowserRouter([
       {
         path: "/chefs/:id",
         element: <PrivateRoutes><ChefRecipe></ChefRecipe></PrivateRoutes>,
-        loader: ({ params }) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader: ({ params }) => fetch(`https://tasty-bite-server-ten.vercel.app/chefs/${params.id}`)
       },
       {
         path: "/login",
